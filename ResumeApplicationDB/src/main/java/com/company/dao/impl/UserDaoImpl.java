@@ -34,11 +34,13 @@ public class UserDaoImpl extends AbstractDAO implements UserDaoInter {
         int birthPlaceId = rs.getInt("birthplace_id");
         String nationalityStr = rs.getString("nationality");
         String birthPlaceStr = rs.getString("birthplace");
+        String profileDesc = rs.getString("profile_description");
+        String address = rs.getString("address");
 
         Country nationality = new Country(nationalityId, null, nationalityStr);
         Country birthplace = new Country(birthPlaceId, birthPlaceStr, null);
 
-        return new User(id, name, surname, phone, email, birthdate, nationality, birthplace);
+        return new User(id, name, surname, phone, email, profileDesc, address, birthdate, nationality, birthplace);
     }
 
     @Override
@@ -83,12 +85,16 @@ public class UserDaoImpl extends AbstractDAO implements UserDaoInter {
     @Override
     public boolean updateUser(User u) {
         try (Connection c = getConnectionToMysql()) {
-            PreparedStatement preparedStatement = c.prepareStatement("update user set name=?,surname=?,phone=?,email=? where id =? ");
+            PreparedStatement preparedStatement = c.prepareStatement("update user set name=?,surname=?,address=?,phone=?,email=?, profile_description = ?,birthDate = ?, birthplace_id = ? where id =? ");
             preparedStatement.setString(1, u.getName());
             preparedStatement.setString(2, u.getSurname());
-            preparedStatement.setString(3, u.getPhone());
-            preparedStatement.setString(4, u.getEmail());
-            preparedStatement.setInt(5, u.getId());
+            preparedStatement.setString(3, u.getAddress());
+            preparedStatement.setString(4, u.getPhone());
+            preparedStatement.setString(5, u.getEmail());
+            preparedStatement.setString(6, u.getProfileDesc());
+            preparedStatement.setDate(7, u.getBirthdate());
+            preparedStatement.setInt(8, u.getBirthPlace().getId());
+            preparedStatement.setInt(9, u.getId());
             boolean isUpdated = preparedStatement.execute();
 //            c.commit();
             c.setAutoCommit(true);
@@ -101,7 +107,7 @@ public class UserDaoImpl extends AbstractDAO implements UserDaoInter {
     }
 
     @Override
-    public boolean removeUser(int id) throws Exception {
+    public boolean removeUser(int id) {
 //Amma onceden yoxlamaq lazimdir ki, Bu id bazada varmi? Silende zaten User olmayan ID sece bilmez, ona gore de problem yasamariq.
         try (Connection c = getConnectionToMysql();
                 Statement statement = c.createStatement();) {
@@ -118,7 +124,7 @@ public class UserDaoImpl extends AbstractDAO implements UserDaoInter {
     }
 
     @Override
-    public User getUserById(int userId) throws Exception {
+    public User getUserById(int userId) {
         User result = null;
         try (Connection c = getConnectionToMysql()) {
 //            String oldQuery = "select * from user where id = ?";
@@ -131,7 +137,7 @@ public class UserDaoImpl extends AbstractDAO implements UserDaoInter {
                     + "	USER u "
                     + "	LEFT JOIN country n ON u.nationality_id = n.id"
                     + "	LEFT JOIN country c ON u.birthplace_id = c.id"
-                    + "	where u.active=1 and where u.id = ?";
+                    + "	where u.active=1 and u.id = ?";
             PreparedStatement ps = c.prepareStatement(query);
             ps.setInt(1, userId);
             boolean isFound = ps.execute();
@@ -148,25 +154,26 @@ public class UserDaoImpl extends AbstractDAO implements UserDaoInter {
     }
 
     @Override
-    public boolean addUser(User u) throws Exception {
+    public boolean addUser(User u) {
         try (Connection c = getConnectionToMysql()) {
-            PreparedStatement ps = c.prepareStatement("INSERT INTO USER (NAME,SURNAME,PHONE,EMAIL) VALUES (?,?,?,?)");
+            PreparedStatement ps = c.prepareStatement("INSERT INTO USER (NAME,SURNAME,ADDRESS,PHONE,EMAIL,profile_description,birthdate) VALUES (?,?,?,?,?)");
             ps.setString(1, u.getName());
             ps.setString(2, u.getSurname());
-            ps.setString(3, u.getPhone());
-            ps.setString(4, u.getEmail());
+            ps.setString(3, u.getAddress());
+            ps.setString(4, u.getPhone());
+            ps.setString(5, u.getEmail());
+            ps.setString(6, u.getProfileDesc());
+            ps.setDate(6, u.getBirthdate());
 
             boolean isAdded = ps.execute();
             System.out.println(isAdded);
             c.setAutoCommit(true);
-            close(null, null, ps, null);
+            close(c, null, ps, null);
             return isAdded;
         } catch (Exception ex) {
             ex.printStackTrace();
             return false;
         }
     }
-
-    
 
 }

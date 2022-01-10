@@ -12,6 +12,7 @@ import com.company.dao.inter.UserDaoInter;
 import com.company.dao.inter.UserSkillDaoInter;
 import com.company.entity.User;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Stream;
 
 /**
@@ -27,17 +28,6 @@ public class Main {
     private static EmploymentHistoryDaoInter employmentHistoryDao = Context.instanceEmploymentHistoryDao();
 
     public static void main(String[] args) throws Exception {
-
-//        System.out.println(userSkillDao.getUserSkillsListByUserId(1));                                                                                                
-        List<User> userList = userDao.getUserList();
-        User u  = null;
-        for (int i = 0; i < userList.size(); i++) {
-            if(userList.get(i).getName() == "Haji"){
-                u = userList.get(i);
-            }  
-        }
-        
-        System.out.println(employmentHistoryDao.getEmploymentHistoryListByUserId(1));
-
+        System.out.println(userDao.getUserById(1));
     }
 }

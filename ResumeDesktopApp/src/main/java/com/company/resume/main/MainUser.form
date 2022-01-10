@@ -67,7 +67,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
       <SubComponents>
-        <Container class="javax.swing.JPanel" name="panelProfile">
+        <Component class="com.company.panel.ProfilePanel" name="profilePanel">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
               <JTabbedPaneConstraints tabName="Profile">
@@ -75,33 +75,8 @@
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
-
-          <Layout>
-            <DimensionLayout dim="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                      <Component id="profilePanel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="434" max="32767" attributes="0"/>
-                  </Group>
-              </Group>
-            </DimensionLayout>
-            <DimensionLayout dim="1">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="profilePanel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="143" max="32767" attributes="0"/>
-                  </Group>
-              </Group>
-            </DimensionLayout>
-          </Layout>
-          <SubComponents>
-            <Component class="com.company.panel.ProfilePanel" name="profilePanel1">
-            </Component>
-          </SubComponents>
-        </Container>
-        <Container class="javax.swing.JPanel" name="panelDetails">
+        </Component>
+        <Component class="com.company.panel.DetailsPanel" name="detailsPanel">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
               <JTabbedPaneConstraints tabName="Details">
@@ -109,32 +84,8 @@
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
-
-          <Layout>
-            <DimensionLayout dim="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      <Component id="detailsPanel1" min="-2" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-            </DimensionLayout>
-            <DimensionLayout dim="1">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="detailsPanel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                  </Group>
-              </Group>
-            </DimensionLayout>
-          </Layout>
-          <SubComponents>
-            <Component class="com.company.panel.DetailsPanel" name="detailsPanel1">
-            </Component>
-          </SubComponents>
-        </Container>
-        <Container class="javax.swing.JPanel" name="panelSkills">
+        </Component>
+        <Component class="com.company.panel.SkillsPanel" name="skillsPanel">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
               <JTabbedPaneConstraints tabName="Skills">
@@ -142,32 +93,8 @@
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
-
-          <Layout>
-            <DimensionLayout dim="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      <Component id="skillsPanel1" min="-2" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-            </DimensionLayout>
-            <DimensionLayout dim="1">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="skillsPanel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-            </DimensionLayout>
-          </Layout>
-          <SubComponents>
-            <Component class="com.company.panel.SkillsPanel" name="skillsPanel1">
-            </Component>
-          </SubComponents>
-        </Container>
-        <Container class="javax.swing.JPanel" name="panelEmploymentHistory">
+        </Component>
+        <Component class="com.company.panel.EmploymentHistoryPanel" name="employmentHistoryPanel">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
               <JTabbedPaneConstraints tabName="Employment History">
@@ -175,32 +102,7 @@
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
-
-          <Layout>
-            <DimensionLayout dim="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
-                      <Component id="employmentHistoryPanel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="410" max="32767" attributes="0"/>
-                  </Group>
-              </Group>
-            </DimensionLayout>
-            <DimensionLayout dim="1">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-                      <Component id="employmentHistoryPanel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="120" max="32767" attributes="0"/>
-                  </Group>
-              </Group>
-            </DimensionLayout>
-          </Layout>
-          <SubComponents>
-            <Component class="com.company.panel.EmploymentHistoryPanel" name="employmentHistoryPanel1">
-            </Component>
-          </SubComponents>
-        </Container>
+        </Component>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="panelUserInfo">
@@ -251,7 +153,7 @@
       <SubComponents>
         <Component class="javax.swing.JTextField" name="txtSurname">
           <Properties>
-            <Property name="toolTipText" type="java.lang.String" value="Enter your name"/>
+            <Property name="toolTipText" type="java.lang.String" value="Enter your surname"/>
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[60, 20]"/>
             </Property>

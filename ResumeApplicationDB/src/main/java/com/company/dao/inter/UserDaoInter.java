@@ -14,15 +14,15 @@ import java.util.List;
  */
 public interface UserDaoInter {
 
-    public List<User> getUserList() throws Exception;
+    public List<User> getUserList() ;
 
-    public User getUserById(int id) throws Exception;
+    public User getUserById(int id) ;
 
-    public boolean addUser(User u) throws Exception;
+    public boolean addUser(User u) ;
 
-    public boolean updateUser(User u) throws Exception;
+    public boolean updateUser(User u);
 
-    public boolean removeUser(int id) throws Exception;
+    public boolean removeUser(int id) ;
 
 
 }

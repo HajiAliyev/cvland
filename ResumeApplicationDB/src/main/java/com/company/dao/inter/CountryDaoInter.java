@@ -13,6 +13,14 @@ import java.util.List;
  * @author ASUS
  */
 public interface CountryDaoInter {
-        public List<Country> getCountryList() throws Exception;
 
+    public List<Country> getCountryList();
+
+    public Country getCountryById(int id);
+
+    public boolean addCountry(Country c);
+
+    public boolean updateCountry(Country c);
+
+    public boolean removeCountry(int id);
 }

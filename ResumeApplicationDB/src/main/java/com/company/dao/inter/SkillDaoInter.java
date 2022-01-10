@@ -13,5 +13,14 @@ import java.util.List;
  * @author ASUS
  */
 public interface SkillDaoInter {
-    public List<Skill> getSkillList() throws Exception;
+    
+    public List<Skill> getSkillList();
+
+    public Skill getSkillById(int id);
+
+    public boolean addCountry(Skill c);
+
+    public boolean updateSkill(Skill c);
+
+    public boolean removeSkill(int id);
 }

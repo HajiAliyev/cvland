@@ -5,24 +5,64 @@
  */
 package com.company.entity;
 
+import java.util.Objects;
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 /**
  *
  * @author ASUS
  */
-@Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Country {
 
+    @Getter
+    @Setter
     private Integer id;
+    
+    @Getter
+    @Setter
     private String name;
+    
+    @Getter
+    @Setter
     private String nationality;
 
+    @Override
+    public String toString() {
+        return name + "(" + nationality + ")";
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 67 * hash + Objects.hashCode(this.id);
+        return hash;
+    }
+
    
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Country other = (Country) obj;
+        if (!Objects.equals(this.id, other.id)) {
+            return false;
+        }
+        return true;
+    }
+    
     
 
 }
