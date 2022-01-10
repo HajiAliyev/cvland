@@ -13,14 +13,16 @@ import java.util.List;
  * @author ASUS
  */
 public interface SkillDaoInter {
-    
+
     public List<Skill> getSkillList();
 
     public Skill getSkillById(int id);
+    
+    public Skill getByName(String name);
 
-    public boolean addCountry(Skill c);
+    public boolean updateSkill(Skill s);
 
-    public boolean updateSkill(Skill c);
+    public boolean addSkill(Skill s);
 
     public boolean removeSkill(int id);
 }
