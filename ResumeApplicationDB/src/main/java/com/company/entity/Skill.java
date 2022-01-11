@@ -7,18 +7,29 @@ package com.company.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 /**
  *
  * @author ASUS
  */
-@Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Skill {
 
+    @Getter
+    @Setter
     private Integer id;
-    private String name; 
-    
+
+    @Getter
+    @Setter
+    private String name;
+
+    @Override
+    public String toString() {
+        return name;
+    }
+
 }

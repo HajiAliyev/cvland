@@ -16,31 +16,30 @@ import com.company.dao.inter.SkillDaoInter;
 import com.company.dao.inter.UserDaoInter;
 import com.company.dao.inter.UserSkillDaoInter;
 
-
-
 /**
  *
  * @author ASUS
  */
 public class Context {
-    public static UserDaoInter instanceUserDao(){
-        return new UserDaoImpl(); 
+
+    public static UserDaoInter instanceUserDao() {
+        return new UserDaoImpl();
         //UserDaoImpl-i deyise bilerem. Qalan hisselerin xeberi olmaz ve isine normal davam edir. 
     }
-    
-    public static SkillDaoInter instanceSkillDao(){
+
+    public static SkillDaoInter instanceSkillDao() {
         return new SkillDaoImpl();
     }
-    
-    public static CountryDaoInter instanceCountryDao(){
+
+    public static CountryDaoInter instanceCountryDao() {
         return new CountryDaoImpl();
     }
-    
-    public static UserSkillDaoInter instanceUserSkillDao(){
+
+    public static UserSkillDaoInter instanceUserSkillDao() {
         return new UserSkillDaoImpl();
     }
 
-    public static EmploymentHistoryDaoInter instanceEmploymentHistoryDao(){
+    public static EmploymentHistoryDaoInter instanceEmploymentHistoryDao() {
         return new EmploymentHistoryDaoImpl();
     }
 }

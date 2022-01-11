@@ -10,10 +10,9 @@ import com.company.dao.inter.EmploymentHistoryDaoInter;
 import com.company.dao.inter.SkillDaoInter;
 import com.company.dao.inter.UserDaoInter;
 import com.company.dao.inter.UserSkillDaoInter;
+import com.company.entity.Skill;
 import com.company.entity.User;
-import java.util.List;
-import java.util.Optional;
-import java.util.stream.Stream;
+import com.company.entity.UserSkill;
 
 /**
  *
@@ -21,13 +20,20 @@ import java.util.stream.Stream;
  */
 public class Main {
 
-    private static UserDaoInter userDao = Context.instanceUserDao();
-    private static SkillDaoInter skillDao = Context.instanceSkillDao();
-    private static CountryDaoInter countryDao = Context.instanceCountryDao();
-    private static UserSkillDaoInter userSkillDao = Context.instanceUserSkillDao();
-    private static EmploymentHistoryDaoInter employmentHistoryDao = Context.instanceEmploymentHistoryDao();
+    private static final UserDaoInter userDao = Context.instanceUserDao();
+    private static final SkillDaoInter skillDao = Context.instanceSkillDao();
+    private static final CountryDaoInter countryDao = Context.instanceCountryDao();
+    private static final UserSkillDaoInter userSkillDao = Context.instanceUserSkillDao();
+    private static final EmploymentHistoryDaoInter employmentHistoryDao = Context.instanceEmploymentHistoryDao();
 
     public static void main(String[] args) throws Exception {
-        System.out.println(userDao.getUserById(1));
+        UserSkill u = new UserSkill(null, new User(1), new Skill(1, "asus"), 5);
+        userSkillDao.addUserSkill(u);
+        System.out.println(skillDao.getSkillList());
+        
+        UserSkill u1 = new UserSkill(1, new User(1), new Skill(1, "toshiba"), 6);
+        userSkillDao.updateUserSkill(u1);
+        System.out.println(skillDao.getSkillList());
+
     }
 }

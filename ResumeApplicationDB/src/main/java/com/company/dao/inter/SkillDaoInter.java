@@ -22,7 +22,7 @@ public interface SkillDaoInter {
 
     public boolean updateSkill(Skill s);
 
-    public boolean addSkill(Skill s);
+    public boolean addSkillAndReturnNewRowId(Skill s);
 
     public boolean removeSkill(int id);
 }

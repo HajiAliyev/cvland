@@ -24,12 +24,13 @@ public class MainUser extends javax.swing.JFrame implements FillableInter { //JF
     private CountryDaoInter countryDao = Context.instanceCountryDao();
 
     public MainUser() {
+        Config.loggedInUser = userDao.getUserById(1);//init-den qabaq islemelidiki paneller null goturmesin. init panelleri yukleyir, bos olanda sehv verir. 
         initComponents();
-        Config.loggedInUser = userDao.getUserById(1);
         this.fillUserComponents();
         detailsPanel.fillUserComponents();//Constructorda cagiriram ki, komanda verib Run edende her bir paneli doldursun. 
         profilePanel.fillUserComponents();
         skillsPanel.fillUserComponents();
+        employmentHistoryPanel.fillUserComponents();
 
     }
 
@@ -59,8 +60,8 @@ public class MainUser extends javax.swing.JFrame implements FillableInter { //JF
         tabbedPaneUserInfo = new javax.swing.JTabbedPane();
         profilePanel = new com.company.panel.ProfilePanel();
         detailsPanel = new com.company.panel.DetailsPanel();
-        skillsPanel = new com.company.panel.SkillsPanel();
         employmentHistoryPanel = new com.company.panel.EmploymentHistoryPanel();
+        skillsPanel = new com.company.panel.SkillsPanel();
         panelUserInfo = new javax.swing.JPanel();
         txtSurname = new javax.swing.JTextField();
         lblName = new javax.swing.JLabel();
@@ -74,8 +75,8 @@ public class MainUser extends javax.swing.JFrame implements FillableInter { //JF
 
         tabbedPaneUserInfo.addTab("Profile", profilePanel);
         tabbedPaneUserInfo.addTab("Details", detailsPanel);
-        tabbedPaneUserInfo.addTab("Skills", skillsPanel);
         tabbedPaneUserInfo.addTab("Employment History", employmentHistoryPanel);
+        tabbedPaneUserInfo.addTab("Skills", skillsPanel);
 
         txtSurname.setToolTipText("Enter your surname");
         txtSurname.setMinimumSize(new java.awt.Dimension(60, 20));
@@ -179,8 +180,8 @@ public class MainUser extends javax.swing.JFrame implements FillableInter { //JF
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tabbedPaneUserInfo)
-                .addContainerGap())
+                .addComponent(tabbedPaneUserInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 668, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();

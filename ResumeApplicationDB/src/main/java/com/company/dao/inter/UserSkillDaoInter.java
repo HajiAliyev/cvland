@@ -14,6 +14,12 @@ import java.util.List;
  */
 public interface UserSkillDaoInter {
 
-    public List<UserSkill> getUserSkillsListByUserId(int userId) throws Exception;
+    public List<UserSkill> getUserSkillsListByUserId(int userId);
+
+    public boolean addUserSkill(UserSkill u);
+
+    public boolean updateUserSkill(UserSkill u);
+
+    public boolean removeUserSkill(int id);
 
 }

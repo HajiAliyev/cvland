@@ -30,6 +30,8 @@ public class DetailsPanel extends javax.swing.JPanel implements FillableInter {
 
     @Override
     public void fillUserComponents() {//User dolu gelsin deye bele yaziram. 
+        fillWindow();
+
         User loggedInUser = Config.loggedInUser;
 
         txtPhone.setText(loggedInUser.getPhone());
@@ -53,21 +55,21 @@ public class DetailsPanel extends javax.swing.JPanel implements FillableInter {
             String phone = txtPhone.getText();
             String address = txtAddress.getText();
             String birthDate = txtBirthDate.getText();
-            
+
             String email = txtEmail.getText();
-            
+
             java.util.Date dateUtil = sdf.parse(birthDate);
             long l = dateUtil.getTime();//getTime - zamani millisaniye ile ifade edir.  
             java.sql.Date bDate = new java.sql.Date(l);
-            
+
             Country selectedBirthPlace = (Country) comboBoxBirthPlace.getSelectedItem();
-            
+
             user.setPhone(phone);
             user.setAddress(address);
             user.setBirthdate(bDate);
             user.setEmail(email);
             user.setBirthPlace(selectedBirthPlace);
-            System.out.println("selectedBirthPlace"+selectedBirthPlace);
+            System.out.println("selectedBirthPlace" + selectedBirthPlace);
         } catch (ParseException ex) {
             ex.printStackTrace();
         }
@@ -75,7 +77,6 @@ public class DetailsPanel extends javax.swing.JPanel implements FillableInter {
 
     public DetailsPanel() {
         initComponents();
-        fillWindow();
     }
 
     private void fillWindow() {
